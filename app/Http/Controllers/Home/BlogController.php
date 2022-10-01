@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Blog;
 use App\Models\BlogCategory;
 use Illuminate\Support\Carbon;
+use Illuminate\Validation\Rule;
 
 use Image;
 
@@ -39,12 +40,15 @@ class BlogController extends Controller
             'tags' => 'required',
             'description' => 'required',
             'image' => 'required',
+            'category_id' => [
+                'required',
+                Rule::notIn(['Choose one Category']),//npublie pas de lajouter en haut --> use Illuminate\Validation\Rule;
+            ],
         ],[
-            
             'tags.required' => 'Le tag du Portfolio est obligatoire !!!',
             'title.required' => 'Le titre du Portfolio est obligatoire !!!',
             'description.required' => 'La description du Portfolio est obligatoire !!!',
-            'image.required' => 'Limage du Portfolio est obligatoire !!!'
+            'image.required' => 'Limage du Portfolio est obligatoire !!!',
         ]);
 
         $images = $request->file('image');

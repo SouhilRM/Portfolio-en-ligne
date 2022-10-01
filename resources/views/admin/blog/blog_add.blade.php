@@ -34,12 +34,17 @@
                             <label for="example-text-input" class="col-sm-1 col-form-label ps-3">Category</label>
                             <div class="col-sm-11">
                                 <select class="form-select" name="category_id" aria-label="Default select example">
-                                    <option selected="">Choose one Category</option>
+                                    <option>Choose one Category</option>
                                     @foreach($category as $cat)
                                         <option value="{{ $cat->id }}">{{ $cat->blog_category }}</option>
                                     @endforeach
                                 </select>
-                                
+
+                                @error('category_id')
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ 'Please Choose One Category' }}
+                                    </div>
+                                @enderror
                             </div>
                         </div>
                         <!-- end row -->
