@@ -92,7 +92,7 @@
                                 <div class="alert alert-danger" role="alert">
                                     {{ $message }}
                                 </div>
-                            @enderror
+                                @enderror
                             </div>
                             
                         </div>

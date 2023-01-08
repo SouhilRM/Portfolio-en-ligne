@@ -115,7 +115,7 @@ class AdminController extends Controller
         ]);
 
         //on recupere le mot de passe de l'utilisateur celui qui est haché et dans la BDD puis on le stock dans la variable $hachedPassword 
-        $hashedPassword = Auth::user()->password; 
+        $hashedPassword = Auth::user()->password;
 
         //tu compares entre ce mor de passe precis de l'utilisateur avec ce qu'il as entrer dans l'input 'oldpassword' sachant que tu dois hacher ce dernier aussi pour pouvoir comparer grace à la méthode Hach::check
         if(Hash::check($request->oldpassword,$hashedPassword)){

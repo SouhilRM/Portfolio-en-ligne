@@ -128,6 +128,7 @@ class AboutController extends Controller
     public function DownloadCV(){
         $cv = About::find(1);
         return Storage::download('public/'.$cv->about_pdf);
+        //return response()->download(public_path('upload/documents/'.$cv->file));
     }
 
     public function HomeAbout(){
