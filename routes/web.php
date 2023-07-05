@@ -2,16 +2,18 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\Home\HomeSliderController;
-use App\Http\Controllers\Home\AboutController;
-use App\Http\Controllers\Home\PortfolioCotroller;
-use App\Http\Controllers\Home\BlogCategoryController;
 use App\Http\Controllers\Home\BlogController;
+use App\Http\Controllers\Home\AboutController;
 use App\Http\Controllers\Home\FooterController;
 use App\Http\Controllers\Home\ContactController;
 use App\Http\Controllers\Home\FeedbackController;
+use App\Http\Controllers\Home\PortfolioCotroller;
+use App\Http\Controllers\Home\HomeSliderController;
+use App\Http\Controllers\Home\BlogCategoryController;
 
-
+//la route du dashboard
+Route::get('/dashboard',[AdminController::class, 'profile'])->middleware(['auth','verified'])->name('dashboard');
+require __DIR__.'/auth.php';
 
 Route::middleware(['auth'])->group(function () {
 
@@ -123,8 +125,9 @@ Route::controller(ContactController::class)->group(function(){
     //front
     Route::get('/contact','Contact')->name('contact.me');
     //back
+    Route::post('/store/contact','StoreContact')->name('store.contact');
     Route::middleware(['auth'])->group(function () {
-        Route::post('/store/contact','StoreContact')->name('store.contact');
+        
         Route::get('/contact/message','ContactMessage')->name('contact.message');
         Route::get('/delete/contact/{id}','DeleteContact')->name('delete.contact');
         Route::get('/show/message/{id}','ShowMessage')->name('show.message');
@@ -145,8 +148,4 @@ Route::controller(FeedbackController::class)->group(function(){
 });
 
 
-Route::get('/dashboard', function () {
-    return view('admin.index');
-})->middleware(['auth','verified'])->name('dashboard');
 
-require __DIR__.'/auth.php';

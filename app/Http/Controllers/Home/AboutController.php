@@ -3,10 +3,8 @@
 namespace App\Http\Controllers\Home;
 use App\Models\About;
 use App\Models\MultiImage;
-use Image;
-
+use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
-
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -34,6 +32,11 @@ class AboutController extends Controller
         $about_id = $request->id;
 
         if($request->file('pdf')){
+
+            if(Storage::exists('public/'.About::find(1)->about_pdf)){
+
+                Storage::delete('public/'.About::find(1)->about_pdf);
+            }
             
             //tu recupere ton pdf via le request dans la var $pdf
             $pdf =$request->file('pdf');

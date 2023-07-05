@@ -6,8 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Portfolio;
 use Illuminate\Support\Carbon;
-
-use Image;
+use Intervention\Image\Facades\Image;
 
 class PortfolioCotroller extends Controller
 {

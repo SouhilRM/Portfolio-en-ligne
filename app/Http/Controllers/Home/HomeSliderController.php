@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Home;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\HomeSlide;
-use Image;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Intervention\Image\Facades\Image;
+
 
 class HomeSliderController extends Controller
 {

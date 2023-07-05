@@ -3,6 +3,7 @@
 <div class="page-content">
 <div class="container-fluid">
 
+    <div class="mb-5"><h1>Admin Page : </h1></div>
     <div class="col-4">
         
         <!-- Simple card -->

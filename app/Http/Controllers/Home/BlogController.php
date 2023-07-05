@@ -8,8 +8,7 @@ use App\Models\Blog;
 use App\Models\BlogCategory;
 use Illuminate\Support\Carbon;
 use Illuminate\Validation\Rule;
-
-use Image;
+use Intervention\Image\Facades\Image;
 
 class BlogController extends Controller
 {
