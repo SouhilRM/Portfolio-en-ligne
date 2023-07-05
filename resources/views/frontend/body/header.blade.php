@@ -35,7 +35,7 @@
                                 </ul>
                             </div>
                             <div class="header__btn d-none d-md-block me-5">
-                                <a href="{{ route('contact.me') }}" class="btn">Contact me</a>
+                                <a href="{{ route('admin.login') }}" target="_blank" class="btn">Admin Part</a>
                             </div>
                         </nav>
                     </div>
